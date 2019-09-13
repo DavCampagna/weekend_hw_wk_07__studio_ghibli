@@ -1,9 +1,34 @@
 <template lang="html">
-
+  <div>
+    <h1>Studio Ghibli Films</h1>
+    <film-list :films="films"></film-list>
+  </div>
 </template>
 
 <script>
+import filmList from './components/filmList.vue'
+
 export default {
+  name: "app",
+  components: {
+    "film-list": filmList
+  },
+  data() {
+    return {
+      films: [],
+      selectedFilm: null
+    }
+  },
+  methods: {
+
+  },
+
+  mounted(){
+  fetch('https://ghibliapi.herokuapp.com/films')
+  .then(res => res.json())
+  .then(films => this.films = films)
+
+  }
 }
 </script>
 
