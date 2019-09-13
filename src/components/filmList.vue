@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import filmItem from '@/components/filmItem.vue'
+import FilmItem from '@/components/FilmItem.vue'
 
 export default {
   name: "film-list",
   props: ["films"],
   components: {
-    "film-item": filmItem
+    "film-item": FilmItem
   }
 }
 </script>

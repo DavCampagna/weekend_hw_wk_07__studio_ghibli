@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import filmList from './components/filmList.vue'
+import FilmList from './components/FilmList.vue'
 
 export default {
   name: "app",
   components: {
-    "film-list": filmList
+    "film-list": FilmList
   },
   data() {
     return {
