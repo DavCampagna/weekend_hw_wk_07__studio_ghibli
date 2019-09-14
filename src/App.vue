@@ -1,11 +1,13 @@
 <template lang="html">
-  <div>
+  <div id="home">
     <header>
       <h1>The Films of Studio Ghibli</h1>
       <film-filter-form :films="films" />
     </header>
     <film-detail :film="selectedFilm"></film-detail>
+    <div id="filmListWrapper">
     <film-list :films="films"></film-list>
+    </div>
     <footer>
       <p>Visit The Official Studio Ghibli website</p>
       <p>Copyright 2019 Davide Campagna</p>
@@ -49,6 +51,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#filmListWrapper{
+  background-image: url('https://i.pinimg.com/originals/5b/39/7b/5b397b87527b8d4d1e299ebfa0f2e9a2.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 h1{
   color: darkblue;
   font-family: cursive;
@@ -56,7 +65,7 @@ h1{
 }
 
 header{
-  background-image: url('https://media.giphy.com/media/Uz4cDaGXPxeuY/giphy.gif');
+  background-image: url('http://giphygifs.s3.amazonaws.com/media/MEVq1F4Nnsm76/giphy.gif');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
