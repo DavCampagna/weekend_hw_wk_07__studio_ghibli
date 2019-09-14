@@ -3,7 +3,7 @@
     <header>
       <h1>Studio Ghibli Films</h1>
     </header>
-    <film-filter-form :film="film" />
+    <film-filter-form :films="films" />
     <film-list :films="films"></film-list>
     <film-detail :film="selectedFilm"></film-detail>
     <footer>
