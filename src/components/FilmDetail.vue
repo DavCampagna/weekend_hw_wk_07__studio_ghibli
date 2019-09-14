@@ -1,6 +1,10 @@
 <template lang="html">
-  <article>
-    <p>Here are the film details</p>
+  <article v-if="film" id="filmDetail">
+    <h1>Film Info</h1>
+    <p>{{film.title}}</p>
+    <p>{{film.director}}</p>
+    <p>{{film.release_date}}</p>
+    <p>{{film.description}}</p>
   </article>
 </template>
 
@@ -12,4 +16,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#filmDetail {
+
+}
+
 </style>

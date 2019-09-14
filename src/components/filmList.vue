@@ -8,7 +8,6 @@
 
 <script>
 import FilmItem from '@/components/FilmItem.vue'
-
 export default {
   name: "film-list",
   props: ["films"],
