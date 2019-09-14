@@ -1,5 +1,5 @@
 <template lang="html">
-  <div id="home">
+  <div id="app">
     <header>
       <h1>The Films of Studio Ghibli</h1>
       <film-filter-form :films="films" />
@@ -51,9 +51,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
-#filmListWrapper{
+#app{
   background-image: url('https://i.pinimg.com/originals/5b/39/7b/5b397b87527b8d4d1e299ebfa0f2e9a2.jpg');
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -61,17 +61,15 @@ export default {
 h1{
   color: darkblue;
   font-family: cursive;
+  font-size: 4em;
   text-align: center;
 }
 
 header{
-  background-image: url('http://giphygifs.s3.amazonaws.com/media/MEVq1F4Nnsm76/giphy.gif');
+  /* background-image: url('http://giphygifs.s3.amazonaws.com/media/MEVq1F4Nnsm76/giphy.gif'); */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: 50vh;
-  padding:50;
-  margin:50;
 }
 
 footer{
