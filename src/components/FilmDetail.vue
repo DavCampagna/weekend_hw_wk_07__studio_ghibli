@@ -20,4 +20,15 @@ export default {
 
 }
 
+h1{
+  color: purple;
+  font-family: cursive;
+  text-align: center;
+}
+
+p{
+  color: black;
+  text-align: center;
+}
+
 </style>

@@ -3,6 +3,7 @@
     <header>
       <h1>Studio Ghibli Films</h1>
     </header>
+    <film-filter-form :film="film" />
     <film-list :films="films"></film-list>
     <film-detail :film="selectedFilm"></film-detail>
     <footer>
@@ -13,12 +14,14 @@
 </template>
 
 <script>
+import FilmFilterForm from './components/FilmFilterForm.vue'
 import { eventBus } from './main.js'
 import FilmList from './components/FilmList.vue'
 import FilmDetail from './components/FilmDetail.vue'
 export default {
   name: "app",
   components: {
+    "film-filter-form": FilmFilterForm,
     "film-list": FilmList,
     "film-detail": FilmDetail
   },
