@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-      <p v-on:click="handleClick">{{film.title}}</p>
+      <p v-on:click="handleClick">{{film.title}} <button v-on:click="addFavourite">Add to Favourites</button></p>
   </div>
 </template>
 
@@ -12,6 +12,9 @@ export default {
   methods: {
   handleClick(){
     eventBus.$emit('film-selected', this.film)
+    },
+  addFavourite(){
+    eventBus.$emit('favourite-added', this.film)
     }
   }
 }

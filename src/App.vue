@@ -2,8 +2,8 @@
   <div>
     <header>
       <h1>The Films of Studio Ghibli</h1>
+      <film-filter-form :films="films" />
     </header>
-    <film-filter-form :films="films" />
     <film-detail :film="selectedFilm"></film-detail>
     <film-list :films="films"></film-list>
     <footer>
@@ -28,33 +28,41 @@ export default {
   data() {
     return {
       films: [],
-      selectedFilm: null
+      selectedFilm: null,
+      favourites: []
       // websiteTag: '<a href="https://www.studioghibli.com.au/"></a>'
     }
   },
   methods: {
+    markFavourite: function(film) {
+    this.favourites.push(film)
+    }
   },
   mounted(){
   fetch('https://ghibliapi.herokuapp.com/films')
   .then(res => res.json())
   .then(films => this.films = films)
-  eventBus.$on('film-selected', (film) => {
-    this.selectedFilm = film
-    })
+  eventBus.$on('film-selected', film => (this.selectedFilm = film));
+  eventBus.$on("favourite-added", film => this.markFavourite(film));
   }
 }
 </script>
 
 <style lang="css" scoped>
 h1{
-  color: purple;
+  color: darkblue;
   font-family: cursive;
   text-align: center;
 }
 
 header{
-  background-color: lightyellow;
-  padding: 10px;
+  background-image: url('https://media.giphy.com/media/Uz4cDaGXPxeuY/giphy.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vh;
+  padding:50;
+  margin:50;
 }
 
 footer{

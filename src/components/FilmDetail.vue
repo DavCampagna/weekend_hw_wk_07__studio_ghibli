@@ -19,8 +19,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
-#filmDetail {
 
+article{
+  background-color: lightyellow;
 }
 
 h1{
