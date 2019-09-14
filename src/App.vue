@@ -1,11 +1,11 @@
 <template lang="html">
   <div>
     <header>
-      <h1>Studio Ghibli Films</h1>
+      <h1>The Films of Studio Ghibli</h1>
     </header>
     <film-filter-form :films="films" />
-    <film-list :films="films"></film-list>
     <film-detail :film="selectedFilm"></film-detail>
+    <film-list :films="films"></film-list>
     <footer>
       <p>Visit The Official Studio Ghibli website</p>
       <p>Copyright 2019 Davide Campagna</p>
