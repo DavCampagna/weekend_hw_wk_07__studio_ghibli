@@ -1,7 +1,7 @@
 <template lang="html">
   <form v-on:submit.prevent>
-    <label>Search for a Studio Ghibli Film: </label>
-    <input type="text" v-model="search" placeholder="search for film..." v-on:keyup="searchForFilm">
+    <label>🔎 </label>
+    <input type="text" v-model="search" placeholder="search for a film..." v-on:keyup="searchForFilm">
     <select v-on:change="handleSelect" v-model="selectedFilm">
       <option disabled value="">Select a film...</option>
       <option v-for="film in films" :value="film">{{film.title}}</option>

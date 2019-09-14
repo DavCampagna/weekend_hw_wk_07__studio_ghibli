@@ -1,10 +1,13 @@
 <template lang="html">
-  <article v-if="film" id="filmDetail">
+  <article>
+    <div v-if="film" id="filmDetail">
     <h1>Film Info</h1>
     <h2>{{film.title}}</h2>
     <p>{{film.director}}</p>
     <p>{{film.release_date}}</p>
     <p>{{film.description}}</p>
+    </div>
+  </div>
   </article>
 </template>
 
@@ -37,6 +40,10 @@ h2{
 p{
   color: black;
   text-align: center;
+}
+
+#close_icon{
+
 }
 
 </style>
