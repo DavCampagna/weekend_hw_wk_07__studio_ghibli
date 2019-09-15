@@ -4,7 +4,8 @@
       <film-item v-for="film in films"
       :film="film"
       :key="film.id"
-      :isFavourite="$parent.isFilmAFavourite(film)">
+      :isFavourite="$parent.isFilmAFavourite(film)"
+      :hasBeenWatched="$parent.hasFilmBeenWatched(film)">
       </film-item>
     </ul>
   </div>
