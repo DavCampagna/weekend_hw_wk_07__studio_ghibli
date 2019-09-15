@@ -8,11 +8,13 @@
     </select>
   </form> -->
   <form v-on:submit.prevent>
-  <input list="films_search">
+  <p> Search for a Studio Ghibli Film </p>
+  <input list="films_search" v-model="search">
   <datalist id="films_search" v-on:change="handleSelect" v-model="selectedFilm">
     <option v-for="film in films" :film="film">{{film.title}}</option>
   </datalist>
-  <input type="submit">
+  <div></div>
+  <input type="image" src="https://loading.io/spinners/magnify/index.searching-for-loading-icon.svg" v-on:click="searchForFilm">
 </form>
 </template>
 

@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="app">
     <header>
-      <h1>The Films of Studio Ghibli</h1>
+      <h1>The Films of Studio Ghibli <img src="https://thumbs.gfycat.com/ShadowyBetterJoey.webp"></h1>
       <film-filter-form :films="films" />
     </header>
     <film-detail :film="selectedFilm"></film-detail>
@@ -104,6 +104,7 @@ header{
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  padding: 20px;
 }
 
 footer{

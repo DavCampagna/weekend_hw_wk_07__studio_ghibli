@@ -41,9 +41,10 @@ export default {
 <style lang="css" scoped>
 
 h2{
-  color: darkblue;
+  color: darkmagenta;
+  text-shadow:5px 5px 10px white;
   font-family: cursive;
-  font-size: 25px;
+  font-size: 28px;
   text-align: left;
 }
 
