@@ -1,12 +1,19 @@
 <template lang="html">
-  <form v-on:submit.prevent>
+  <!-- <form v-on:submit.prevent>
     <label>🔎 </label>
     <input type="text" v-model="search" placeholder="search for a film..." v-on:keyup="searchForFilm">
     <select v-on:change="handleSelect" v-model="selectedFilm">
       <option disabled value="">Select a film...</option>
       <option v-for="film in films" :value="film">{{film.title}}</option>
     </select>
-  </form>
+  </form> -->
+  <form v-on:submit.prevent>
+  <input list="films_search">
+  <datalist id="films_search" v-on:change="handleSelect" v-model="selectedFilm">
+    <option v-for="film in films" :film="film">{{film.title}}</option>
+  </datalist>
+  <input type="submit">
+</form>
 </template>
 
 <script>
