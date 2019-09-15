@@ -49,5 +49,14 @@ h2{
 
 div{
   text-align: center;
+  padding: 20px;
+}
+
+div:hover{
+  color: magenta;
+  cursor: default;
+  background-color: hsla(60, 92%, 72%, 0.49);
+  border-radius: 15px;
+  padding: 20px;
 }
 </style>

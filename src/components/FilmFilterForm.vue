@@ -9,12 +9,12 @@
   </form> -->
   <form v-on:submit.prevent>
   <p> Search for a Studio Ghibli Film </p>
-  <input list="films_search" v-model="search">
+  <input list="films_search" v-model="search" v-on:keyup.enter="searchForFilm">
   <datalist id="films_search" v-on:change="handleSelect" v-model="selectedFilm">
     <option v-for="film in films" :film="film">{{film.title}}</option>
   </datalist>
   <div></div>
-  <input type="image" src="https://loading.io/spinners/magnify/index.searching-for-loading-icon.svg" v-on:click="searchForFilm">
+  <input type="image" id="magnifying_glass" src="https://loading.io/spinners/magnify/index.searching-for-loading-icon.svg" v-on:click="searchForFilm">
 </form>
 </template>
 
@@ -61,11 +61,18 @@ form{
   margin: 40px 0;
 }
 
-select, input[type="text"]{
+input{
+  width: 25%;
+}
+
+#magnifying_glass{
+  width: 50px;
+}
+/* select, input[type="text"]{
   font-size: 18px;
 }
 
 select {
   margin-left: 20px;
-}
+} */
 </style>

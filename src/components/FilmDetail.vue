@@ -34,7 +34,8 @@ h1{
 
 h2{
   font-size: 3em;
-  color: darkmagenta;
+  color: rgb(255, 0, 128);
+  text-shadow:5px 5px 10px white;
   font-family: cursive;
   text-align: center;
 }
