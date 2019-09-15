@@ -41,6 +41,9 @@ export default {
     }
   },
   methods: {
+    displayFilmInfo: function(film) {
+      this.selectedFilm = film
+      },
     markFavourite: function(film) {
       this.favourites.push(film)
       },
@@ -75,7 +78,7 @@ export default {
   fetch('https://ghibliapi.herokuapp.com/films')
   .then(res => res.json())
   .then(films => this.films = films)
-  eventBus.$on("film-selected", film => (this.selectedFilm = film));
+  eventBus.$on("film-selected", film => this.displayFilmInfo(film));
   eventBus.$on("favourite-added", film => this.markFavourite(film));
   eventBus.$on("favourite-removed", film => this.unmarkFavourite(film));
   eventBus.$on("film-watched", film => this.markWatched(film));

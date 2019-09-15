@@ -1,6 +1,6 @@
 <template lang="html">
   <article>
-    <div v-if="film" id="filmDetail">
+    <div v-if="film">
     <h1>Film Info</h1>
     <h2>{{film.title}}</h2>
     <p>{{film.director}}</p>
