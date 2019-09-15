@@ -48,6 +48,14 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+p{
+  font-size: 25px;
+  color: rgb(255, 77, 77);
+  font-family: cursive;
+  text-align: center;
+}
+
 form{
   text-align: center;
   margin: 40px 0;

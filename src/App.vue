@@ -1,7 +1,8 @@
 <template lang="html">
   <div id="app">
     <header>
-      <h1>The Films of Studio Ghibli <img src="https://thumbs.gfycat.com/ShadowyBetterJoey.webp"></h1>
+      <h1>The Films of Studio Ghibli</h1>
+      <img src="https://thumbs.gfycat.com/ShadowyBetterJoey.webp">
       <film-filter-form :films="films" />
     </header>
     <film-detail :film="selectedFilm"></film-detail>
@@ -101,6 +102,7 @@ h1{
 
 header{
   /* background-image: url('http://giphygifs.s3.amazonaws.com/media/MEVq1F4Nnsm76/giphy.gif'); */
+  text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

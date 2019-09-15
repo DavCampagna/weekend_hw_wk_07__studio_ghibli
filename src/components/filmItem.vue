@@ -45,7 +45,9 @@ h2{
   text-shadow:5px 5px 10px white;
   font-family: cursive;
   font-size: 28px;
-  text-align: left;
 }
 
+div{
+  text-align: center;
+}
 </style>

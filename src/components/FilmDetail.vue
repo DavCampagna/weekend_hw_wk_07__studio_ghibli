@@ -22,6 +22,7 @@ export default {
 
 article{
   background-color: hsla(60, 92%, 72%, 0.49);
+  padding: 0px;
 }
 
 h1{
