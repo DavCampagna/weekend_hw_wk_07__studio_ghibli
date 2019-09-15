@@ -1,6 +1,6 @@
 <template lang="html">
   <li>
-    {{ film.name }}
+    {{ film.title }}
     <button v-on:click="selectFilm">Display Info</button>
     <button v-on:click="removeFavourite">Remove from Favourites</button>
   </li>
@@ -24,4 +24,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 </style>

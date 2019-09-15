@@ -21,11 +21,11 @@ export default {
 <style lang="css" scoped>
 
 article{
-  background-color: lightyellow;
+  background-color: hsla(60, 92%, 72%, 0.49);
 }
 
 h1{
-  color: purple;
+  color: steelblue;
   font-size: 2em;
   font-family: cursive;
   text-align: center;
@@ -33,7 +33,7 @@ h1{
 
 h2{
   font-size: 3em;
-  color: crimson;
+  color: darkmagenta;
   font-family: cursive;
   text-align: center;
 }

@@ -20,12 +20,14 @@ import FilmFilterForm from './components/FilmFilterForm.vue'
 import { eventBus } from './main.js'
 import FilmList from './components/FilmList.vue'
 import FilmDetail from './components/FilmDetail.vue'
+import FavouriteFilmList from './components/FavouriteFilmList.vue'
 export default {
   name: "app",
   components: {
     "film-filter-form": FilmFilterForm,
     "film-list": FilmList,
-    "film-detail": FilmDetail
+    "film-detail": FilmDetail,
+    "favourite-film-list": FavouriteFilmList
   },
   data() {
     return {
@@ -38,6 +40,10 @@ export default {
   methods: {
     markFavourite: function(film) {
     this.favourites.push(film)
+    },
+    unmarkFavourite: function(film) {
+    const index = this.favourites.indexOf(film);
+    this.favourites.splice(index, 1)
     }
   },
   mounted(){
@@ -46,6 +52,7 @@ export default {
   .then(films => this.films = films)
   eventBus.$on('film-selected', film => (this.selectedFilm = film));
   eventBus.$on("favourite-added", film => this.markFavourite(film));
+  eventBus.$on("favourite-removed", film => this.unmarkFavourite(film));
   }
 }
 </script>
