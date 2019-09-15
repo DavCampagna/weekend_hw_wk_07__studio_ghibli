@@ -5,7 +5,8 @@
       :film="film"
       :key="film.id"
       :isFavourite="$parent.isFilmAFavourite(film)"
-      :hasBeenWatched="$parent.hasFilmBeenWatched(film)">
+      :hasBeenWatched="$parent.hasFilmBeenWatched(film)"
+      :isWatchlistItem="$parent.isFilmAWatchlistItem(film)">
       </film-item>
     </ul>
   </div>
@@ -18,11 +19,6 @@ export default {
   props: ["films"],
   components: {
     "film-item": FilmItem
-  },
-  methods: {
-    deleteFilm: function() {
-      this.films.pop()
-    }
   }
 }
 </script>

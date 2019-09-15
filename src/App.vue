@@ -34,7 +34,8 @@ export default {
       films: [],
       selectedFilm: null,
       favourites: [],
-      watched: []
+      watched: [],
+      watchlist: []
       // websiteTag: '<a href="https://www.studioghibli.com.au/"></a>'
     }
   },
@@ -56,16 +57,29 @@ export default {
     hasFilmBeenWatched: function(film) {
       const idsOfWatched = (this.watched.map(watched => watched.id))
       return idsOfWatched.includes(film.id)
+    },
+    markWatchlistItem: function(film) {
+      this.watchlist.push(film)
+    },
+    unmarkWatchlistItem: function(film) {
+      const index = this.watchlist.indexOf(film);
+      this.watchlist.splice(index, 1)
+    },
+    isFilmAWatchlistItem: function(film){
+      const idsOfWatchlistItems = (this.watchlist.map(watchlist => watchlist.id))
+      return idsOfWatchlistItems.includes(film.id)
     }
   },
   mounted(){
   fetch('https://ghibliapi.herokuapp.com/films')
   .then(res => res.json())
   .then(films => this.films = films)
-  eventBus.$on('film-selected', film => (this.selectedFilm = film));
+  eventBus.$on("film-selected", film => (this.selectedFilm = film));
   eventBus.$on("favourite-added", film => this.markFavourite(film));
   eventBus.$on("favourite-removed", film => this.unmarkFavourite(film));
   eventBus.$on("film-watched", film => this.markWatched(film));
+  eventBus.$on("watchlist-added", film => this.markWatchlistItem(film));
+  eventBus.$on("watchlist-removed", film => this.unmarkWatchlistItem(film))
   }
 }
 </script>

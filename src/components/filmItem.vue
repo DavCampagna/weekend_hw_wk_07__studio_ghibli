@@ -5,6 +5,8 @@
     <button v-if="isFavourite" v-on:click="removeFavourite">Remove from Favourites</button>
     <button v-if="!hasBeenWatched" v-on:click="addWatched">Mark as Watched</button>
     <p v-if="hasBeenWatched">Watched!</p>
+    <button v-if="!isWatchlistItem" v-on:click="addToWatchlist">Add to Watchlist</button>
+    <button v-if="isWatchlistItem" v-on:click="removeWatchlistItem">Remove from Watchlist</button>
   </div>
 </template>
 
@@ -12,7 +14,7 @@
 import { eventBus } from '../main.js'
 export default {
   name: "film-item",
-  props: ["film", "isFavourite", "hasBeenWatched"],
+  props: ["film", "isFavourite", "hasBeenWatched", "isWatchlistItem"],
   methods: {
   showFilmInfo(){
     eventBus.$emit('film-selected', this.film)
@@ -25,6 +27,12 @@ export default {
     },
   addWatched(){
     eventBus.$emit("film-watched", this.film)
+    },
+  addToWatchlist(){
+    eventBus.$emit("watchlist-added", this.film)
+    },
+  removeWatchlistItem(){
+    eventBus.$emit("watchlist-removed", this.film)
     }
   }
 }
