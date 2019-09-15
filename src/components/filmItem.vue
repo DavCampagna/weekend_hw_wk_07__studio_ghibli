@@ -1,8 +1,8 @@
 <template lang="html">
   <div>
     <p v-on:click="showFilmInfo">{{film.title}}</p>
-      <button v-on:click="addFavourite">Add to Favourites</button>
-      <button v-on:click="removeFavourite">Remove from Favourites</button>
+      <button v-if="!isFavourite" v-on:click="addFavourite">Add to Favourites</button>
+      <button v-if="isFavourite" v-on:click="removeFavourite">Remove from Favourites</button>
 
   </div>
 </template>
@@ -11,7 +11,7 @@
 import { eventBus } from '../main.js'
 export default {
   name: "film-item",
-  props: ["film"],
+  props: ["film", "isFavourite"],
   methods: {
   showFilmInfo(){
     eventBus.$emit('film-selected', this.film)

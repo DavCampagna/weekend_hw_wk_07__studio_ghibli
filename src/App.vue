@@ -44,7 +44,11 @@ export default {
     unmarkFavourite: function(film) {
     const index = this.favourites.indexOf(film);
     this.favourites.splice(index, 1)
-    }
+    },
+    isFilmAFavourite: function(film){
+    const idsOfFavourites = (this.favourites.map(favourite => favourite.id))
+    return idsOfFavourites.includes(film.id)
+    }  
   },
   mounted(){
   fetch('https://ghibliapi.herokuapp.com/films')

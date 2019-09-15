@@ -1,7 +1,11 @@
 <template lang="html">
   <div id="film-list">
     <ul>
-      <film-item v-for="film in films" :film="film" :key="index"></film-item>
+      <film-item v-for="film in films"
+      :film="film"
+      :key="film.id"
+      :isFavourite="$parent.isFilmAFavourite(film)">
+      </film-item>
     </ul>
   </div>
 </template>
