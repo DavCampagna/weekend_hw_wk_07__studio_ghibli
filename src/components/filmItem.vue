@@ -3,10 +3,11 @@
     <h2 v-on:click="showFilmInfo">{{film.title}}</h2>
     <!-- <button v-if="!showDetail" v-on:click="showFilmInfo">Show Info</button> -->
 
-    <button v-if="!isFavourite" v-on:click="addFavourite">Add to Favourites</button>
+    <p v-if="isFavourite">Favourite!</p>
+    <p v-if="hasBeenWatched, !addFavourite">Watched!</p>
     <button v-if="isFavourite" v-on:click="removeFavourite">Remove from Favourites</button>
+    <button v-if="!isFavourite" v-on:click="addFavourite">Add to Favourites</button>
     <button v-if="!hasBeenWatched" v-on:click="addWatched">Mark as Watched</button>
-    <p v-if="hasBeenWatched">Watched!</p>
     <button v-if="!isWatchlistItem, !hasBeenWatched" v-on:click="addToWatchlist">Add to Watchlist</button>
     <button v-if="isWatchlistItem" v-on:click="removeWatchlistItem">Remove from Watchlist</button>
   </div>
