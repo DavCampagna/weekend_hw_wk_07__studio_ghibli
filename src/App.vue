@@ -1,11 +1,23 @@
 <template lang="html">
   <div id="app">
     <header>
+      <!-- <component is="film-list"></component> -->
+      <!-- <favourite-film-list v-on:click="favourites">Favourite</favourite-film-list> -->
+
+      <!-- <component v-bind:is="component"></component>
+      <button v-on:click="component = 'favourite-film-list'" :favourites='favourites'>Favourites</button>
+      <button v-on:click="component = 'film-list'" :films='films'>List</button> -->
+
+      <!-- <favourite-film-list :favourites="favourites"></favourite-film-list>
+      <button v-on:click="favourites">Favourites</button> -->
+      <!-- <button v-on:click="hideFilmInfo">Unselect Film</button> -->
       <h1>The Films of Studio Ghibli</h1>
       <img src="https://thumbs.gfycat.com/ShadowyBetterJoey.webp">
       <film-filter-form :films="films" />
     </header>
+    <div id="filmDetailWrapper">
     <film-detail :film="selectedFilm"></film-detail>
+    </div>
     <div id="filmListWrapper">
     <film-list :films="films"></film-list>
     </div>
@@ -36,7 +48,9 @@ export default {
       selectedFilm: null,
       favourites: [],
       watched: [],
-      watchlist: []
+      watchlist: [],
+      watchAgain: []
+      // component: "favourite-film-list"
       // websiteTag: '<a href="https://www.studioghibli.com.au/"></a>'
     }
   },
@@ -72,6 +86,13 @@ export default {
     isFilmAWatchlistItem: function(film){
       const idsOfWatchlistItems = (this.watchlist.map(watchlist => watchlist.id))
       return idsOfWatchlistItems.includes(film.id)
+    },
+    hideFilmInfo: function(film){
+      this.selectedFilm = null
+    },
+    markWatchAgainItem: function(film){
+      this.hasFilmBeenWatched(film) 
+      this.watchAgain.push(film)
     }
   },
   mounted(){
@@ -83,7 +104,9 @@ export default {
   eventBus.$on("favourite-removed", film => this.unmarkFavourite(film));
   eventBus.$on("film-watched", film => this.markWatched(film));
   eventBus.$on("watchlist-added", film => this.markWatchlistItem(film));
-  eventBus.$on("watchlist-removed", film => this.unmarkWatchlistItem(film))
+  eventBus.$on("watchlist-removed", film => this.unmarkWatchlistItem(film));
+  eventBus.$on("film-unselected", film => this.hideFilmInfo(film));
+  eventBus.$on("watchAgain-added", film => this.markWatchAgainItem(film));
   }
 }
 </script>
@@ -94,6 +117,10 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+#filmDetailWrapper{
+  padding-left: 20;
 }
 
 h1{

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div v-if="favourites">
     <ul>
       <favourite-film-item
         v-for="film in favourites"
